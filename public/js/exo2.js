@@ -21,6 +21,7 @@ button.addEventListener("click", () => {
 
 
 //2
+let container2 = document.querySelector("#mignon2-container")
 
 let exo2img = document.querySelectorAll("#mignon2-container *")
 console.log(exo2img.length);
@@ -28,10 +29,15 @@ console.log(exo2img.length);
 exo2img.forEach(e => {
     e.addEventListener("click", () => {
         e.remove()
-        if (exo2img.length == 0) {
-            setTimeout (()=>{
-                container.appendChild(cloneImage)
-            },2000)
+        if(document.querySelectorAll("#mignon2-container>img").length == 0){
+            setTimeout(() => {
+                for(let i = 0; i < 5; i++){
+                    let img = document.createElement("img")
+                    img.src = "../images/mignons2.gif"
+                    img.width = "200"
+                    container2.appendChild(img)
+                }
+            }, 1000)
         }
     })
 })
@@ -54,16 +60,15 @@ ul.insert
 
 //4
 
-/* let btn = document.querySelector("#exo-li-from-input > button")
-let textInput = document.querySelector("#exo-li-from-input > input")
-let list = document.querySelector("#exo-li-from-input > ul")
-let leText = textInput.value
-let newText = document.createElement("li")
-newText.textContent = leText
-
-.addEventListener("click", () => {
-    list.appendChild(newText)
+let inputt = document.querySelector('.form-control');
+let buttont = document.querySelector('.form-row > div > button');
+let listet = document.querySelector('#exo-li-from-input>ul');
+buttont.addEventListener('click', () => {
+    let newLit = document.createElement('li');
+    newLit.innerText = inputt.value;
+    listet.insertBefore(newLit, document.querySelectorAll("#exo-li-from-input > ul > li")[0]);
+    inputt.value = '';
 })
- */
+
 
 
